@@ -1,21 +1,63 @@
-# Weather API 🌤️
+# Weather API
 
-OpenWeatherMap’ten güncel hava durumu verisi çeken **Spring Boot REST API**.  
-Basit ve minimal bir proje olarak hızlıca çalıştırabilir ve şehir bazlı hava durumu sorgulayabilirsiniz.
+OpenWeatherMap API kullanarak şehir bazlı hava durumu verilerini sağlayan bir Spring Boot REST API uygulamasıdır.
 
----
+## Proje Amacı
 
-## Özellikler
+Bu proje, harici bir API ile entegrasyon kurmayı ve alınan verileri REST endpoint üzerinden sunmayı göstermek amacıyla geliştirilmiştir.
 
-- Belirli bir şehir için sıcaklık ve hava durumu bilgisini döndürür.
-- Spring Boot ve Jackson ile JSON parse edilir.
-- Minimal ve anlaşılır kod yapısı ile hızlıca genişletilebilir.
+## Kullanılan Teknolojiler
 
----
+- Java
+- Spring Boot
+- Spring Web
+- Maven
 
-## Kurulum
+## Çalıştırma
 
-1. Bu repoyu klonlayın:
+Projeyi klonladıktan sonra aşağıdaki adımları takip edin:
 
-```bash
-git clone https://github.com/kullaniciadi/weather-api.git
+1. `application.properties` dosyasına API key ekleyin:
+
+```
+weather.api.key=YOUR_API_KEY
+```
+
+2. Uygulamayı çalıştırın:
+
+```
+mvn spring-boot:run
+```
+
+## API Kullanımı
+
+### Endpoint
+
+```
+GET /api/weather?city={sehir}
+```
+
+### Örnek
+
+```
+http://localhost:8080/api/weather?city=Istanbul
+```
+
+## Örnek Response
+
+```json
+{
+  "city": "Istanbul",
+  "temperature": 20,
+  "description": "clear sky"
+}
+```
+
+## Notlar
+
+- API verileri OpenWeatherMap üzerinden alınmaktadır.
+- Proje basit bir katmanlı mimari ile geliştirilmiştir (controller, service, client).
+
+## 👨‍💻 Geliştirici
+
+**Halis Lütfü Bayçöl**
